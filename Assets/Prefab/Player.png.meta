@@ -112,16 +112,16 @@ TextureImporter:
     - name: Leg_L
       guid: 8a303862817b2164db76731a4498b79c
       position: {x: 16.469467, y: -27.079739, z: 0}
-      rotation: {x: 0, y: -0, z: -0.9346936, w: 0.35545465}
-      length: 98.47792
+      rotation: {x: 0, y: -0, z: -0.9346936, w: 0.3554545}
+      length: 98.47793
       parentId: 0
       color:
         serializedVersion: 2
         rgba: 4294967040
     - name: Foot_L
       guid: 814bbe6d37ce6ae41bf237b79f1faeee
-      position: {x: 98.477905, y: -0.000011936318, z: 0}
-      rotation: {x: 0, y: 0, z: -0.25762132, w: 0.966246}
+      position: {x: 98.47792, y: 0.000015515121, z: 0}
+      rotation: {x: 0, y: 0, z: -0.25762117, w: 0.96624607}
       length: 109.947716
       parentId: 3
       color:
@@ -130,16 +130,16 @@ TextureImporter:
     - name: Right_R
       guid: f143f4828003b5a4f803402613512683
       position: {x: 13.216485, y: 33.65914, z: 0}
-      rotation: {x: 0, y: -0, z: 0.9897344, w: 0.14291945}
-      length: 88.27141
+      rotation: {x: 0, y: -0, z: 0.98973435, w: 0.14291945}
+      length: 88.27145
       parentId: 0
       color:
         serializedVersion: 2
         rgba: 4294902015
     - name: Foot_R
       guid: 8813b9f60133fe24db27e2815a123c86
-      position: {x: 88.27143, y: -0.000022731316, z: 0}
-      rotation: {x: 0, y: 0, z: -0.16153495, w: 0.986867}
+      position: {x: 88.27146, y: -0.000016340267, z: 0}
+      rotation: {x: 0, y: 0, z: -0.16153494, w: 0.986867}
       length: 114.62636
       parentId: 5
       color:
@@ -157,7 +157,7 @@ TextureImporter:
     - name: Hand_L
       guid: b371e13e390371b478aa97a055b450e5
       position: {x: 72.76695, y: 0.00002925401, z: 3}
-      rotation: {x: 0, y: 0, z: 0.27067348, w: 0.9626712}
+      rotation: {x: 0, y: 0, z: 0.27067354, w: 0.9626712}
       length: 79.38957
       parentId: 7
       color:
@@ -167,14 +167,14 @@ TextureImporter:
       guid: 3f1ddf1be3c572a49a5b5173cffc8db3
       position: {x: 69.94421, y: 38.431007, z: 3}
       rotation: {x: 0, y: -0, z: 0.9294999, w: 0.36882228}
-      length: 72.13073
+      length: 72.130714
       parentId: 1
       color:
         serializedVersion: 2
         rgba: 4294934528
     - name: Hand_R
       guid: 3c37e0d5c9853bf4187341b8daa00c9c
-      position: {x: 72.13071, y: -0.000022206466, z: 3}
+      position: {x: 72.13069, y: -0.00001100751, z: 3}
       rotation: {x: 0, y: 0, z: 0.31975964, w: 0.94749874}
       length: 94.364586
       parentId: 9
