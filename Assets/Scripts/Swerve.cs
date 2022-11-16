@@ -7,6 +7,7 @@ public class Swerve : MonoBehaviour
 {
     SwerveSystem swerveSystem;
     public GameObject ball;
+    public Animator playerAnim;
     private void Awake()
     {
         swerveSystem = GetComponent<SwerveSystem>();
@@ -26,6 +27,16 @@ public class Swerve : MonoBehaviour
         {
             ball.transform.DOScale(new Vector3(1, 1, 1), 1);
         }
+        //if (swerveSystem.moveFactorXPlayer > 0)
+        //{
+        //    playerAnim.SetTrigger("Left");
+        //    //playerAnim.SetBool("Hold", false);
+        //}
+        //else if(swerveSystem.moveFactorXPlayer == 0)
+        //{
+        //    playerAnim.SetBool("Hold", true);
+        //}
+
         //Debug.Log(swerveSystem.moveFactorXBall);
     }
 }
