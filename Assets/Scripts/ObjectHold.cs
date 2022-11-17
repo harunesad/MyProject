@@ -4,51 +4,28 @@ using UnityEngine;
 
 public class ObjectHold : MonoBehaviour
 {
-    public Animator playerAnim;
-    // Start is called before the first frame update
-    void Start()
+    private void OnMouseDown()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        BodyHold.instance.hold = false;
     }
     private void OnMouseDrag()
+    {
+        if (!BodyHold.instance.hold)
+        {
+            BodyHold.instance.holdObj = gameObject;
+            LimitObjectPos();
+            SwerveSystem.instance.SystemBall();
+        }
+    }
+    void LimitObjectPos()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0;
         transform.position = mousePos;
-        if (gameObject.name == "Ball")
-        {
-            //Debug.Log("sdsa");
-            SwerveSystem.instance.SystemBall();
-        }
-        if (gameObject.name == "Player")
-        {
-            SwerveSystem.instance.SystemPlayer();
-            if (SwerveSystem.instance.moveFactorXPlayer >= 0)
-            {
-                playerAnim.SetTrigger("Right");
-                playerAnim.SetBool("HoldRight", true);
-                playerAnim.SetBool("HoldLeft", false);
-            }
-            if (SwerveSystem.instance.moveFactorXPlayer < 0)
-            {
-                playerAnim.SetTrigger("Left");
-                playerAnim.SetBool("HoldLeft", true);
-                playerAnim.SetBool("HoldRight", false);
-                Debug.Log(SwerveSystem.instance.moveFactorXPlayer);
-            }
-        }
-    }
-    private void OnMouseUp()
-    {
-        if (gameObject.name == "Player")
-        {
-            playerAnim.SetBool("Hold", false);
-        }
+        float posX = mousePos.x;
+        float posY = mousePos.y;
+        posX = Mathf.Clamp(posX, -9.25f, 9.25f);
+        posY = Mathf.Clamp(posY, -3, 3.75f);
+        transform.position = new Vector2(posX, posY);
     }
 }
