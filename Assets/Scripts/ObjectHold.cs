@@ -6,7 +6,6 @@ using DG.Tweening;
 public class ObjectHold : MonoBehaviour
 {
     public static ObjectHold instance;
-    //public GameObject ball;
     Vector3 lastFrameFingerPositionBall;
     public float moveFactorBall;
     private void Awake()

@@ -5,7 +5,7 @@ using UnityEngine;
 public class BodyHold : MonoBehaviour
 {
     public static BodyHold instance;
-    public Animator playerAnim;
+    Animator bodyAnim;
     public bool hold;
     public GameObject holdObj;
 
@@ -14,6 +14,7 @@ public class BodyHold : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        bodyAnim = GetComponent<Animator>();
     }
     private void OnMouseDown()
     {
@@ -30,8 +31,8 @@ public class BodyHold : MonoBehaviour
     }
     private void OnMouseUp()
     {
-        playerAnim.SetBool("HoldLeft", false);
-        playerAnim.SetBool("HoldRight", false);
+        bodyAnim.SetBool("HoldLeft", false);
+        bodyAnim.SetBool("HoldRight", false);
 
         moveFactorXPlayer = 0f;
     }
@@ -40,7 +41,7 @@ public class BodyHold : MonoBehaviour
         if (collision.gameObject.layer == 6 && holdObj.layer == 6 && hold == false)
         {
             hold = true;
-            playerAnim.SetTrigger("Crash");
+            bodyAnim.SetTrigger("Crash");
             ObjectHold.instance.moveFactorBall = 0;
         }
     }
@@ -61,13 +62,13 @@ public class BodyHold : MonoBehaviour
     {
         if (moveFactorXPlayer > 0)
         {
-            playerAnim.SetBool("HoldLeft", false);
-            playerAnim.SetBool("HoldRight", true);
+            bodyAnim.SetBool("HoldLeft", false);
+            bodyAnim.SetBool("HoldRight", true);
         }
         if (moveFactorXPlayer < 0)
         {
-            playerAnim.SetBool("HoldRight", false);
-            playerAnim.SetBool("HoldLeft", true);
+            bodyAnim.SetBool("HoldRight", false);
+            bodyAnim.SetBool("HoldLeft", true);
         }
     }
 }

@@ -490,7 +490,7 @@ GameObject:
   - component: {fileID: 395792664}
   - component: {fileID: 395792663}
   m_Layer: 3
-  m_Name: Player
+  m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -695,7 +695,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3411d969a5a86364a930be856e759d83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAnim: {fileID: 395792663}
   hold: 0
   holdObj: {fileID: 0}
 --- !u!1 &399894229
