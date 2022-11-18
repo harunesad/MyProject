@@ -8,21 +8,32 @@ public class BodyHold : MonoBehaviour
     public Animator playerAnim;
     public bool hold;
     public GameObject holdObj;
+
+    float lastFrameFingerPositionXPlayer;
+    float moveFactorXPlayer;
     private void Awake()
     {
         instance = this;
+    }
+    private void OnMouseDown()
+    {
+        lastFrameFingerPositionXPlayer = Input.mousePosition.x;
     }
     private void OnMouseDrag()
     {
         holdObj = gameObject;
         LimitBodyPos();
-        SwerveSystem.instance.SystemPlayer();
         AnimatorControl();
+
+        moveFactorXPlayer = Input.mousePosition.x - lastFrameFingerPositionXPlayer;
+        lastFrameFingerPositionXPlayer = Input.mousePosition.x;
     }
     private void OnMouseUp()
     {
         playerAnim.SetBool("HoldLeft", false);
         playerAnim.SetBool("HoldRight", false);
+
+        moveFactorXPlayer = 0f;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -30,7 +41,7 @@ public class BodyHold : MonoBehaviour
         {
             hold = true;
             playerAnim.SetTrigger("Crash");
-            SwerveSystem.instance.moveFactorBall = 0;
+            ObjectHold.instance.moveFactorBall = 0;
         }
     }
     void LimitBodyPos()
@@ -38,20 +49,22 @@ public class BodyHold : MonoBehaviour
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0;
         transform.position = mousePos;
+
         float posX = mousePos.x;
         float posY = mousePos.y;
-        posX = Mathf.Clamp(posX, -8.25f, 8.25f);
+
+        posX = Mathf.Clamp(posX, -9, 9);
         posY = Mathf.Clamp(posY, -1.4f, 2.4f);
         transform.position = new Vector2(posX, posY);
     }
     void AnimatorControl()
     {
-        if (SwerveSystem.instance.moveFactorXPlayer > 0)
+        if (moveFactorXPlayer > 0)
         {
             playerAnim.SetBool("HoldLeft", false);
             playerAnim.SetBool("HoldRight", true);
         }
-        if (SwerveSystem.instance.moveFactorXPlayer < 0)
+        if (moveFactorXPlayer < 0)
         {
             playerAnim.SetBool("HoldRight", false);
             playerAnim.SetBool("HoldLeft", true);
